@@ -77,10 +77,17 @@ export LESS=-R
 
 
 ## Plugins section: Enable fish style features
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Use syntax highlighting
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # Use history substring search
+    source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+else
+    # Use syntax highlighting
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # Use history substring search
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up

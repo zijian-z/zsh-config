@@ -1,8 +1,13 @@
 () {
   emulate -L zsh
 
-  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        source /usr/local/Cellar/powerlevel10k/1.16.1/powerlevel10k.zsh-theme
+        source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    else
+        source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
 
   # Determine terminal capabilities.
   {
