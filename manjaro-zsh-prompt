@@ -24,13 +24,25 @@
     fi
   } 2>/dev/null
 
-  if [[ $USE_POWERLINE == false ]]; then
-    # Use 8 colors and ASCII.
-    source /usr/share/zsh/p10k-portable.zsh
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=black,bold'
-  else
-    # Use 256 colors and UNICODE.
-    source /usr/share/zsh/p10k.zsh
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
-  fi
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      if [[ $USE_POWERLINE == false ]]; then
+        # Use 8 colors and ASCII.
+        source /usr/local/share/zsh/p10k-portable.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=black,bold'
+      else
+        # Use 256 colors and UNICODE.
+        source /usr/local/share/zsh/p10k.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+      fi
+    else
+      if [[ $USE_POWERLINE == false ]]; then
+        # Use 8 colors and ASCII.
+        source /usr/share/zsh/p10k-portable.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=black,bold'
+      else
+        # Use 256 colors and UNICODE.
+        source /usr/share/zsh/p10k.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+      fi
+    fi
 }
