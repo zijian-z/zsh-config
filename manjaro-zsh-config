@@ -203,7 +203,8 @@ add-zsh-hook preexec mzc_termsupport_preexec
 
 # File and Dir colors for ls and other outputs
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    export CLICOLOR=1 
+    export CLICOLOR=1
+    export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 else
     export LS_OPTIONS='--color=auto'
     eval "$(dircolors -b)"
